@@ -1,0 +1,19 @@
+fieldset{
+    width: 50%;
+    transform: translate(50%,50%);
+}
+
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.formStyle input{
+    margin-bottom: 1.5rem;
+}
+
+.formStyle button{
+    width: max-content;
+    margin: auto;
+}

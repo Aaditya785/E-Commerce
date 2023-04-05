@@ -15,13 +15,9 @@
 
 .navbar .left .logo {
     font-style: italic;
-    color: aqua;
+    text-decoration: none;
 }
 
-/* .left,
-.right {
-    border: 1px solid;
-} */
 
 .right {
     height: inherit;
