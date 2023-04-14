@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { fetchEcomm } from '../redux/reducer';
 import AddProduct from './AddProduct';
 import CartItems from './CartItems';
+import EditProduct from './EditProduct';
 import Navbar from './Navbar';
 
 
@@ -15,7 +16,7 @@ function App() {
 
   useEffect(() => { 
     dispatch(fetchEcomm()) 
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path='/' element={<CartItems items={state.ecomm.data} />} />
           <Route path='/addProduct' element={<AddProduct/>} />
+          <Route path='/editProduct/:editId' element={<EditProduct/>} />
         </Routes>
       </BrowserRouter>
     </div>
