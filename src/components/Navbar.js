@@ -15,9 +15,7 @@ const Navbar = () => {
           <span className='logo'>Ghadi Wala.com</span>
         </Link>
 
-        <Link to="/addProduct" >
-          <button>Add a product ➕</button>
-        </Link>
+        
       </div>
 
       <div className='right'>
