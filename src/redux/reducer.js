@@ -15,19 +15,13 @@ const ecommSlice = createSlice({
         isError: false,
         totalProduct: 0,
         totalAmount: 0,
+        isLogin: false,
     },
     reducers: {
         addProducts(state, action) {
             console.log("This is inside the addProduct reducer", action.payload)
             state.data.push(action.payload);
             state.totalProduct += 1;
-        },
-        removeProducts(state, action) {
-            if (action.payload) {
-                const newItem = state.data.filter((item) => item.id !== action.payload.id)
-                state.data = newItem;
-            }
-            state.totalProduct -= 1;
         },
         editProduct(state, action) {
             console.log("Actions : ", action.payload.id)
@@ -44,27 +38,42 @@ const ecommSlice = createSlice({
             const findElement = state.data.findIndex(item => item.id === action.payload);
             const price = parseFloat(state.data[findElement].price);
             state.totalAmount += price;
-            // alert(state.totalAmount);
-            // state.data[findElement].price
         },
         addToCart(state, action) {
             const newItem = state.data.find((item) => item.id === action.payload.id);
             const existingItem = state.cartData.find((item) => item.id === newItem.id);
-          
+
             if (existingItem) {
-              alert("Item already exists in the cart.");
-              state.totalProduct -= 1;
-              state.totalAmount -= parseFloat(existingItem.price); // Decrease the total amount by the price of the existing item
-              
-              // Remove the existing item from the cart
-            //   state.cartData = state.cartData.filter((item) => item.id !== existingItem.id);
+                alert("Item already exists in the cart.");
+                state.totalProduct -= 1;
+                state.totalAmount -= parseFloat(existingItem.price); // Decrease the total amount by the price of the existing item
+
+                // Remove the existing item from the cart
+                //   state.cartData = state.cartData.filter((item) => item.id !== existingItem.id);
             } else {
-              state.cartData.push(newItem);
-              console.log(state.cartData);
+                state.cartData.push(newItem);
+                console.log(state.cartData);
             }
+        },
+        removeProducts(state, action) {
+            const itemId = action.payload.id;
+            const updatedCartData = state.cartData.filter((item) => item.id !== itemId);
+            const removedItem = state.cartData.find((item) => item.id === itemId);
+          
+            if (removedItem) {
+              state.cartData = updatedCartData;
+              state.totalAmount -= parseFloat(removedItem.price);
+            }
+          
+            state.totalProduct -= 1;
+          },
+          removeCartdata(state){
+            state.cartData = [];
+            state.totalProduct = 0;
           }
           
-          
+
+
 
 
     }
@@ -88,7 +97,7 @@ const ecommSlice = createSlice({
 
 });
 
-export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount, addToCart } = ecommSlice.actions;
+export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount, addToCart, removeCartdata } = ecommSlice.actions;
 
 export default ecommSlice.reducer;
 // export const ecommProduct = ecommSlice.reducer.addProducts;

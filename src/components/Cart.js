@@ -1,33 +1,42 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 
 import "../assets/Cart.css";
+import { removeCartdata } from '../redux/reducer';
 import { CartItem } from "./CartItem";
 export const Cart = () => {
   const total = useSelector((state) => state);
+  const dispatch = useDispatch();
   const totalAmount = total.ecomm.totalAmount;
+  let cartdata = total.ecomm.cartData;
 
   const navigate = useNavigate();
 
+  function handleCheckout(){
+    navigate("/checkout")
+    cartdata = [];
+    dispatch(removeCartdata())
+  }
+
   return (
-    <div className="cart">
+    <div className="cartmain">
+      <div className="cart">
       <div>
         <h1>Your Cart Items</h1>
       </div>
-      <div className="cart">
-        {total.ecomm.cartData.map((product) => {
+        {cartdata.map((product) => {
           return <CartItem data={product} />;
         })}
       </div>
 
-      {true ?
+      { cartdata.length > 0 ?
         (<div className="checkout">
           <div className="subtotal">
             <h2>Subtotal: {totalAmount}</h2>
           </div>
           <div className="buttons">
             <button onClick={() => navigate("/")}>Continue Shopping</button>
-            <button >
+            <button onClick={handleCheckout} >
               Checkout
             </button>
           </div>

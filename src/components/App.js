@@ -5,6 +5,7 @@ import { fetchEcomm } from '../redux/reducer';
 import { Cart } from './Cart';
 // import AddProduct from './AddProduct';
 import CartItems from './CartItems';
+import { Checkout } from './Checkout';
 // import EditProduct from './EditProduct';
 import Navbar from './Navbar';
 import { ProductDetails } from './ProductDetails';
@@ -29,6 +30,7 @@ function App() {
           <Route path='/' element={<CartItems items={state.ecomm.data} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/checkout" element={<Checkout/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -27,7 +27,7 @@ export const Product = (props) => {
         <p>
           <b>{title}</b>
         </p>
-        <p> ${price}</p>
+        <p> ₹{price}</p>
       </div>
       </Link>
       
