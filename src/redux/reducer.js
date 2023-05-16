@@ -11,6 +11,7 @@ const ecommSlice = createSlice({
     initialState: {
         isLoading: false,
         data: [],
+        cartData: [],
         isError: false,
         totalProduct: 0,
         totalAmount: 0,
@@ -37,7 +38,6 @@ const ecommSlice = createSlice({
         ,
         addToTotal(state) {
             state.totalProduct += 1;
-            alert(state.totalProduct);
 
         },
         addTotalAmount(state, action) {
@@ -46,7 +46,26 @@ const ecommSlice = createSlice({
             state.totalAmount += price;
             // alert(state.totalAmount);
             // state.data[findElement].price
-        }
+        },
+        addToCart(state, action) {
+            const newItem = state.data.find((item) => item.id === action.payload.id);
+            const existingItem = state.cartData.find((item) => item.id === newItem.id);
+          
+            if (existingItem) {
+              alert("Item already exists in the cart.");
+              state.totalProduct -= 1;
+              state.totalAmount -= parseFloat(existingItem.price); // Decrease the total amount by the price of the existing item
+              
+              // Remove the existing item from the cart
+            //   state.cartData = state.cartData.filter((item) => item.id !== existingItem.id);
+            } else {
+              state.cartData.push(newItem);
+              console.log(state.cartData);
+            }
+          }
+          
+          
+
 
     }
     ,
@@ -69,7 +88,7 @@ const ecommSlice = createSlice({
 
 });
 
-export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount } = ecommSlice.actions;
+export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount, addToCart } = ecommSlice.actions;
 
 export default ecommSlice.reducer;
 // export const ecommProduct = ecommSlice.reducer.addProducts;

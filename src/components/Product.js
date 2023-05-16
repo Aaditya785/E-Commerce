@@ -1,9 +1,8 @@
-// import React, { useContext } from "react";
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { Link } from "react-router-dom";
-// import { ShopContext } from "../../context/shop-context";
-import { addTotalAmount, addToTotal } from '../redux/reducer';
+
+import { addToCart, addTotalAmount, addToTotal } from '../redux/reducer';
 
 export const Product = (props) => {
   const [click, setClick] = useState("true");
@@ -16,6 +15,7 @@ export const Product = (props) => {
   function handleClick(){
     dispatch(addTotalAmount(id));
     dispatch(addToTotal());
+    dispatch(addToCart(props.data));
     setClick(!click);
   }
 

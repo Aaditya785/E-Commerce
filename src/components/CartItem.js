@@ -1,25 +1,18 @@
-// import React, { useContext } from "react";
-// import { ShopContext } from "../../context/shop-context";
 
 export const CartItem = (props) => {
-  const { title, price, img, id } = props.data;
-  // const { cartItems, addToCart, removeFromCart, updateCartItemCount } =
-  //   useContext(ShopContext);
+  const { title, price, img, id, qty } = props.data;
 
-  return ( 
-    <div className="cartItem">
+  return (
+    <div className="cartItem" key={id}>
       <div className="description">
-      <img src={img} alt={id} />
+        <img src={img} alt={id} />
         <p>
           <b>{title}</b>
         </p>
-        <p> Price: ${price.toLocaleString()}</p>
+        <p> Price: Rs.{price}</p>
         <div className="countHandler">
           <button> - </button>
-          <input
-            // value={cartItems[id]}
-       
-          />
+          <input value={qty} />
           <button > + </button>
         </div>
       </div>
