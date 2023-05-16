@@ -15,15 +15,16 @@ const Navbar = () => {
           <span className='logo'>Ghadi Wala.com</span>
         </Link>
 
-        
+
       </div>
 
       <div className='right'>
-
-        <div style={styles.cartIconContainer}>
-          <img style={styles.cartIcon} src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="cart-icon" />
-          <span style={styles.cartCount}> {total1} </span>
-        </div>
+        <Link to="/cart">
+          <div style={styles.cartIconContainer}>
+            <img style={styles.cartIcon} src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="cart-icon" />
+            <span style={styles.cartCount}> {total1} </span>
+          </div>
+        </Link>
 
         <span>John Doe</span>
         <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt='profile-img' />

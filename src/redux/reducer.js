@@ -12,31 +12,42 @@ const ecommSlice = createSlice({
         isLoading: false,
         data: [],
         isError: false,
-        totalProduct: 0
+        totalProduct: 0,
+        totalAmount: 0,
     },
     reducers: {
-        addProducts(state, action){
-            console.log("This is inside the addProduct reducer",action.payload)
+        addProducts(state, action) {
+            console.log("This is inside the addProduct reducer", action.payload)
             state.data.push(action.payload);
-            state.totalProduct+=1;
+            state.totalProduct += 1;
         },
         removeProducts(state, action) {
             if (action.payload) {
                 const newItem = state.data.filter((item) => item.id !== action.payload.id)
                 state.data = newItem;
             }
-            state.totalProduct-=1;
+            state.totalProduct -= 1;
         },
-        editProduct(state, action){
+        editProduct(state, action) {
             console.log("Actions : ", action.payload.id)
-             const findElement = state.data.findIndex(item => item.id == action.payload.id)
-             console.log("FindElement", findElement)
-             state.data[findElement] = {...state.data, ...action.payload}
+            const findElement = state.data.findIndex(item => item.id === action.payload.id)
+            console.log("FindElement", findElement)
+            state.data[findElement] = { ...state.data, ...action.payload }
         }
         ,
-        addToTotal(state){
-            state.totalProduct=state.data.length-1+1;
+        addToTotal(state) {
+            state.totalProduct += 1;
+            alert(state.totalProduct);
+
+        },
+        addTotalAmount(state, action) {
+            const findElement = state.data.findIndex(item => item.id === action.payload);
+            const price = parseFloat(state.data[findElement].price);
+            state.totalAmount += price;
+            // alert(state.totalAmount);
+            // state.data[findElement].price
         }
+
     }
     ,
     extraReducers: (builder) => {
@@ -48,7 +59,7 @@ const ecommSlice = createSlice({
             state.isLoading = false;
             state.data = action.payload;
         })
-        
+
         builder.addCase(fetchEcomm.rejected, (state, action) => {
             console.log('Error', action.payload);
             state.isError = true;
@@ -58,7 +69,7 @@ const ecommSlice = createSlice({
 
 });
 
-export const {addProducts,removeProducts,addToTotal,editProduct} = ecommSlice.actions;
+export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount } = ecommSlice.actions;
 
 export default ecommSlice.reducer;
 // export const ecommProduct = ecommSlice.reducer.addProducts;

@@ -1,6 +1,7 @@
 // import { useDispatch, useSelector } from 'react-redux'
 import '../assets/CartItems.css'
 import { Product } from './Product'
+
 // import { addToTotal, removeProducts } from '../redux/reducer';
 // import { AiFillDelete,AiFillEdit } from 'react-icons/ai';
 // import { Link } from 'react-router-dom';
@@ -27,7 +28,7 @@ const CartItems = ({ items }) => {
 
         {
           arr = items.map((item) => (
-            <Product data={item} />
+            <Product data={item} key={item.id}/>
             // <div onLoad={() => dispatch(addToTotal())} className='cartItem' key={item.id} >
               
             // </div>

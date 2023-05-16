@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { fetchEcomm } from '../redux/reducer';
+import { Cart } from './Cart';
 // import AddProduct from './AddProduct';
 import CartItems from './CartItems';
 // import EditProduct from './EditProduct';
 import Navbar from './Navbar';
-// import { ProductDetails } from './ProductDetails';
+import { ProductDetails } from './ProductDetails';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
             <Route path='/' element={<CartItems items={state.ecomm.data} />} />
             {/* <Route path='/addProduct' element={<AddProduct />} /> */}
             {/* <Route path='/editProduct/:editId' element={<EditProduct />} /> */}
-            {/* <Route path="/product/:id" element={<ProductDetails />} /> */}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
           </Routes>
       </BrowserRouter>
     </div>
