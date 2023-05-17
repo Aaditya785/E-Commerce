@@ -12,7 +12,7 @@ export const Cart = () => {
 
   const navigate = useNavigate();
 
-  function handleCheckout(){
+  function handleCheckout() {
     navigate("/checkout")
     cartdata = [];
     dispatch(removeCartdata())
@@ -21,15 +21,15 @@ export const Cart = () => {
   return (
     <div className="cartmain">
       <div className="cart">
-      <div>
-        <h1>Your Cart Items</h1>
-      </div>
+        <center>
+          <h1>Your Cart Items</h1>
+        </center>
         {cartdata.map((product) => {
           return <CartItem data={product} />;
         })}
       </div>
 
-      { cartdata.length > 0 ?
+      {cartdata.length > 0 ?
         (<div className="checkout">
           <div className="subtotal">
             <h2>Subtotal: {totalAmount}</h2>

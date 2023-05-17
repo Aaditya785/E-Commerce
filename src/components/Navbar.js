@@ -32,17 +32,23 @@ const Navbar = () => {
 
         {/* <span>John Doe</span>
         <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt='profile-img' /> */}
-        {isAuthenticated && <span>{user.name}</span>}
+        {isAuthenticated && <img className='profile_img' src={user.picture} alt='profile-img' />}
 
-        {isAuthenticated ? (<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+        {isAuthenticated ? (<button style={styles.autBtn}  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
           Log Out
-        </button>) : (<> <button onClick={() => loginWithRedirect()}>Login</button> </>)}
+        </button>) : (<> <button style={styles.autBtn} onClick={() => loginWithRedirect()}>Login</button> </>)}
       </div>
     </div>
   )
 }
 
 const styles = {
+  autBtn:{
+    padding: 5,
+    borderRadius: 5,
+    border: '1px solid grey',
+    cursor: 'pointer'
+  },
   cartIcon: {
     height: 32,
     marginRight: 20

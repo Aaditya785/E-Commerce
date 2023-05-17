@@ -30,10 +30,19 @@
     height: inherit;
     display: flex;
     width: 20%;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: flex-end;
     align-items: center;
+    margin-right: 25px;
 }
 
-.right img {
+.profile_img {
     height: inherit;
+    border-radius: 50%;
+    margin: 5px;
+}
+@media (max-width:780px) {
+    .right{
+        width: 40%;
+    }
 }
