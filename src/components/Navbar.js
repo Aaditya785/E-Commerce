@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import '../assets/Navbar.css'
 import { useSelector } from 'react-redux';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Navbar = () => {
+  const { loginWithRedirect, user, isAuthenticated, logout  } = useAuth0();
+
 
   const total = useSelector((state) => state);
   const total1 = total.ecomm.totalProduct;
@@ -26,8 +30,13 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <span>John Doe</span>
-        <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt='profile-img' />
+        {/* <span>John Doe</span>
+        <img src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' alt='profile-img' /> */}
+        {isAuthenticated && <span>{user.name}</span>}
+
+        {isAuthenticated ? (<button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+          Log Out
+        </button>) : (<> <button onClick={() => loginWithRedirect()}>Login</button> </>)}
       </div>
     </div>
   )
