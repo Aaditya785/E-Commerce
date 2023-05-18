@@ -9,7 +9,7 @@ export const Checkout = () => {
   return (
     <> 
     {isAuthenticated ? (<h1 style={{fontSize:"50px"}}>Hii!,<br/>{user.name}<br/>Your Item Delivered Sortly</h1>)
-    :(<div classname="checkLogin" ><h1>You Have To Login/signup First</h1><br/><button onClick={()=> loginWithRedirect()}>Login/Signup</button></div>)}
+    :(<div className="checkLogin" ><h1>You Have To Login/signup First</h1><br/><button onClick={()=> loginWithRedirect()}>Login/Signup</button></div>)}
     </>
   );
 };

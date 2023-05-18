@@ -18,18 +18,6 @@ const ecommSlice = createSlice({
         isLogin: false,
     },
     reducers: {
-        addProducts(state, action) {
-            console.log("This is inside the addProduct reducer", action.payload)
-            state.data.push(action.payload);
-            state.totalProduct += 1;
-        },
-        editProduct(state, action) {
-            console.log("Actions : ", action.payload.id)
-            const findElement = state.data.findIndex(item => item.id === action.payload.id)
-            console.log("FindElement", findElement)
-            state.data[findElement] = { ...state.data, ...action.payload }
-        }
-        ,
         addToTotal(state) {
             state.totalProduct += 1;
 
@@ -59,21 +47,38 @@ const ecommSlice = createSlice({
             const itemId = action.payload.id;
             const updatedCartData = state.cartData.filter((item) => item.id !== itemId);
             const removedItem = state.cartData.find((item) => item.id === itemId);
-          
+
             if (removedItem) {
-              state.cartData = updatedCartData;
-              state.totalAmount -= parseFloat(removedItem.price);
+                state.cartData = updatedCartData;
+                console.log(removedItem.price);
+                state.totalAmount -= parseFloat(removedItem.price);
             }
-          
+
             state.totalProduct -= 1;
-          },
-          removeCartdata(state){
+        },
+        removeCartdata(state) {
             state.cartData = [];
             state.totalProduct = 0;
+            state.totalAmount = 0;
+        },
+        decrementProduct(state, action) {
+            const itemId = action.payload.id;
+            const itemIndex = state.cartData.findIndex((item) => item.id === itemId);
+            if (itemIndex !== -1) {
+                const item = state.cartData[itemIndex];
+                item.qty -= 1;
+                state.totalAmount -= parseFloat(item.price);
+            }
+          },
+          incrementProduct(state, action) {
+            const itemId = action.payload.id;
+            const itemIndex = state.cartData.findIndex((item) => item.id === itemId);
+            if (itemIndex !== -1) {
+                const item = state.cartData[itemIndex];
+                item.qty += 1;
+                state.totalAmount += parseFloat(item.price);
+            }
           }
-          
-
-
 
 
     }
@@ -97,7 +102,7 @@ const ecommSlice = createSlice({
 
 });
 
-export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount, addToCart, removeCartdata } = ecommSlice.actions;
+export const { addProducts, removeProducts, addToTotal, editProduct, addTotalAmount, addToCart, removeCartdata, decrementProduct, incrementProduct } = ecommSlice.actions;
 
 export default ecommSlice.reducer;
 // export const ecommProduct = ecommSlice.reducer.addProducts;

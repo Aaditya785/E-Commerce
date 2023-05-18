@@ -8,15 +8,17 @@
       "price": "3515",
       "qty": 1,
       "rating": 4.1,
+      "added": false,
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
       "id": 6,
-      "title": "FASTRACK REFLEX NITRO LARGE 1.8 ULTRAVU DISPLAY",
+      "title": "FASTRACK REFLEX NITRO LARGE 1.8 ULTRA UV DISPLAY",
       "img": "https://staticimg.titan.co.in/Fastrack/Catalog/38085PP02_1.jpg?impolicy=pqmed&imwidth=640",
       "price": "3999",
       "qty": 1,
       "rating": 4.3,
+      "added": false,
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -26,6 +28,7 @@
       "price": "4995",
       "qty": 1,
       "rating": 4.4,
+      "added": false,
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -35,6 +38,7 @@
       "price": "4040",
       "qty": 1,
       "rating": 4.7,
+      "added": false,
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -44,6 +48,7 @@
       "price": "8995",
       "qty": 1,
       "rating": 4.2,
+      "added": false,
       "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -53,6 +58,7 @@
       "price": "5795",
       "qty": 1,
       "rating": 4.3,
+      "added": false,
       "description": "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -62,6 +68,7 @@
       "price": "11999",
       "qty": 1,
       "rating": 4.1,
+      "added": false,
       "description": "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     },
     {
@@ -71,6 +78,7 @@
       "price": "9995",
       "qty": 1,
       "rating": 4.8,
+      "added": false,
       "description": "   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quod! In, exercitationem soluta ipsam explicabo, quia delectus quisquam laboriosam, saepe aperiam non laborum? Ipsum labore doloribus expedita accusantium ullam tempore ad velit modi alias neque porro deleniti voluptas molestiae laborum eaque vero vitae illum est, minima nemo non. Consectetur, debitis."
     }
   ]

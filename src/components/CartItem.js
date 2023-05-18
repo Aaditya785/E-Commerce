@@ -1,21 +1,23 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeProducts } from "../redux/reducer";
+import { decrementProduct, incrementProduct, removeProducts } from "../redux/reducer";
 
 export const CartItem = (props) => {
   const { title, price, img, id, qty } = props.data;
-  const [Qty, setQty] = useState(qty);
   const dispatch = useDispatch();
 
   function decrease(){
-    setQty(Qty-1)
-    if(Qty<=1){
+    if(qty!==1){
+      // dispatch(decrementProduct(props.data))
+      dispatch(decrementProduct(props.data))
+
+    }else{
       dispatch(removeProducts(props.data));
+
     }
   }
 
   function increase(){
-    setQty(Qty+1)
+    dispatch(incrementProduct(props.data))
   }
 
   return (
@@ -25,15 +27,15 @@ export const CartItem = (props) => {
         <p>
           <b>{title}</b>
         </p>
-        <p> Price: ₹{price}</p>
+        <p> Price: ₹ {price}</p>
         <div className="countHandler">
 
-          <div className="delete" onClick={()=>dispatch(removeProducts(props.data))} >❌</div>
+          {/* <div className="delete" onClick={()=>dispatch(removeProducts(props.data))} >❌</div> */}
 
 
           <div>
             <button onClick={decrease} > - </button>
-            <input value={Qty} />
+            <input  value={qty} onChange={()=>{ console.log(qty)}}/>
             <button onClick={increase} > + </button>
           </div>
         </div>
